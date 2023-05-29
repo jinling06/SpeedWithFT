@@ -1,7 +1,7 @@
 
 
 # FasterTransformer 加速流程
-
+[知乎详细介绍](https://zhuanlan.zhihu.com/p/632763351)
 ## 配置环境
 ```python
 # 下面配置在A6000上进行的实验 cuda11.4 pytorch=1.12.1+cu113
@@ -105,7 +105,7 @@ sh run_test.sh
 ```
 ### 速度测试
 #### 不同模型测试效果
-参数：batch size : 32, Input length: 512, Output length: 128 num_beams: 3
+参数：batch size=32, Input length=512, Output length=128, num_beams=3
 
 |模型名称|HF结果|FT结果|提速|
 |---|---|---|---|
@@ -114,7 +114,7 @@ sh run_test.sh
 |bart_finetuned_model_swa_base_ade_output|589.27 ms|71.63 ms|8.22|
 
 #### 不同beam测试效果 
-参数：model_name:bart-base batch size : 32, Input length: 512, Output length: 128 
+参数：model_name=bart-base, batch size=32, Input length=512, Output length=128 
 
 |模型名称|HF结果|FT结果|提速|
 |---|---|---|---|
@@ -125,7 +125,7 @@ sh run_test.sh
 |num_beams=5|2012.27 ms|187.18 ms|10.75|
 
 #### 不同 batch_size 测试效果 
-参数：model_name:bart-base Input length: 512, Output length: 128 num_beams: 3
+参数：model_name=bart-base, Input length=512, Output length=128, num_beams=3
 
 |模型名称|HF结果|FT结果|提速|
 |---|---|---|---|
@@ -155,8 +155,8 @@ sh run_test.sh
 ```
 ### 速度测试
 #### 有无 remove_padding
-参数：[bert-base-chinese](https://huggingface.co/bert-base-chinese/tree/main) 
-batch_size 32 use_fp16 True input_max_len 512
+参数：[bert-base-chinese](https://huggingface.co/bert-base-chinese/tree/main) ,
+batch_size=32, use_fp16=True,input_max_len=512
 
 |模型名称|HF结果|FT结果|提速|
 |---|---|---|---|
@@ -164,8 +164,8 @@ batch_size 32 use_fp16 True input_max_len 512
 |remove_padding False|88.73 ms|7.16 ms|12.39
 
 #### 不同 batch_size 速度测试
-参数：[bert-base-chinese](https://huggingface.co/bert-base-chinese/tree/main) 
-remove_padding False use_fp16 True input_max_len 512
+参数：[bert-base-chinese](https://huggingface.co/bert-base-chinese/tree/main) ,
+remove_padding=False, use_fp16=True, input_max_len=512
 
 |模型名称|HF结果|FT结果|提速|
 |---|---|---|---|
